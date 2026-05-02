@@ -32,7 +32,7 @@ print(wisort([1,5,1,1,6,4]))
 #     IF (i is even AND arr[i] > arr[i - 1]) OR
 #           (i is odd  AND arr[i] < arr[i - 1]) THEN
 #           SWAP arr[i] WITH arr[i - 1]
-#     RETURN arr
+#     RETURN (arr,i+1)
 # //Time comp: Each recursive call:
 # Checks the base case -> constant time
 # Evaluates the condition -> constant time
