@@ -52,17 +52,17 @@ Time complexity|----> T(n)=T(n−1)+O(1) =  O(n)
 
 print("Recursive Implementation:")
 
-def reqwisort(arr,i=1):
+def recwisort(arr,i=1):
     if i>=len(arr):# base case: this is the exit condition that happens (len(arr)) times [n]
         return arr
     # if statment is the main operation to check the [low, high] pattern and will happen (len(arr)) times [n]
     if ((i%2==0 and arr[i] > arr[i-1]) or#condition to check if the current element is in the correct order
         (i%2==1 and arr[i] < arr[i-1])):# based on its index (even or odd)
             arr[i],arr[i-1]=arr[i-1],arr[i]
-    return reqwisort(arr,i+1)# recursive call: moves to the next index, creating T(n-1) logic
+    return recwisort(arr,i+1)# recursive call: moves to the next index, creating T(n-1) logic
 #///////////////TEST
-print("using reqwisort: ",reqwisort([1,3,2,2,3,1]))
-print("using reqwisort: ",reqwisort([1,5,1,1,6,4]))
+print("using recwisort: ",recwisort([1,3,2,2,3,1]))
+print("using recwisort: ",recwisort([1,5,1,1,6,4]))
 print("---------------------------------------")
 
 
@@ -153,9 +153,39 @@ def newwisort(nums):
 # Dominant term: O(n log n)
 
 print("merge_sort then wiggle Implementation:")
-nums = [1,2,3,4,5,6]
-print("using newwisort: ",newwisort(nums))
 print("using newwisort: ",newwisort([1,3,2,2,3,1]))
 print("using newwisort: ",newwisort([1,5,1,1,6,4]))
 print("using newwisort: ",newwisort([4,4,4,5,5,5]))
+print("---------------------------------------")
+print("---------------------------------------")
+print("merge_sort then Recursive wiggle Implementation:")
+
+def recnewwisort(nums, first_call=True):
+    if len(nums) <= 1:
+        return nums
+    
+    # first iteration check (to sort the array)
+    if first_call:
+        nums = merge_sort(nums)
+    
+    n = len(nums)
+    mid = n // 2
+    
+    # split and reverse halves
+    left = nums[:mid][::-1]
+    right = nums[mid:][::-1]
+    
+    # if one side is empty we will just return the other 
+    if not left:
+        return right
+    if not right:
+        return left
+    
+    # take first elements then recurse on the rest
+    return [left[0], right[0]] + recnewwisort(left[1:] + right[1:], first_call=False)
+
+print("using recnewwisort: ",recnewwisort([1,3,2,2,3,1]))
+print("using recnewwisort: ",recnewwisort([1,5,1,1,6,4]))
+print("using recnewwisort: ",recnewwisort([4,4,4,5,5,5]))
+print("---------------------------------------")
 print("---------------------------------------")
