@@ -36,8 +36,8 @@ def newwisort(nums):
     n = len(ms_nums)
     mid = n // 2
 
-    left = nums[:mid][::-1]
-    right = nums[mid:][::-1]
+    left = ms_nums[:mid][::-1]
+    right = ms_nums[mid:][::-1]
     
     result = []
     i=j=0
@@ -99,4 +99,3 @@ print("using recnewwisort: ",recnewwisort([1,5,1,1,6,4]))
 print("using recnewwisort: ",recnewwisort([4,4,4,5,5,5]))
 print("---------------------------------------")
 print("---------------------------------------")
-print(__name__)
