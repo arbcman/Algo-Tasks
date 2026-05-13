@@ -27,9 +27,9 @@ def wisort(arr):
             arr[i],arr[i-1]=arr[i-1],arr[i] # performing swap
     return arr
 #///////////////TEST
-print(wisort([1,3,2,2,3,1]))
-print(wisort([1,5,1,1,6,4]))
-print("-----------------------------")
+print("using wisort: ",wisort([1,3,2,2,3,1]))
+print("using wisort: ",wisort([1,5,1,1,6,4]))
+print("---------------------------------------")
 """ 
 ------------------------|
 Psuedocode For Recursive|
@@ -61,9 +61,9 @@ def reqwisort(arr,i=1):
             arr[i],arr[i-1]=arr[i-1],arr[i]
     return reqwisort(arr,i+1)# recursive call: moves to the next index, creating T(n-1) logic
 #///////////////TEST
-print(reqwisort([1,3,2,2,3,1]))
-print(reqwisort([1,5,1,1,6,4]))
-print("-----------------------------")
+print("using reqwisort: ",reqwisort([1,3,2,2,3,1]))
+print("using reqwisort: ",reqwisort([1,5,1,1,6,4]))
+print("---------------------------------------")
 
 
 """ 
@@ -152,9 +152,10 @@ def newwisort(nums):
 
 # Dominant term: O(n log n)
 
-
+print("merge_sort then wiggle Implementation:")
 nums = [1,2,3,4,5,6]
 print("using newwisort: ",newwisort(nums))
 print("using newwisort: ",newwisort([1,3,2,2,3,1]))
 print("using newwisort: ",newwisort([1,5,1,1,6,4]))
 print("using newwisort: ",newwisort([4,4,4,5,5,5]))
+print("---------------------------------------")
